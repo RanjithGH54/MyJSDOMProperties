@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(86, 70, 70);
+        }
+        #main-heading{
+            text-align: center;
+            color: white;
+        }
+        .container{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+        .boxes{
+            border: 3px solid wheat;
+            border-radius: 20px;
+            width: 200px;
+            height: 300px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        #heading{
+            margin-top: 60px;
+        }
+        button{
+            margin-top: 50px;
+            padding: 10px;
+            width: 100px;
+            font-size: larger;
+            border-radius: 8px;
+            background-color: lightblue;
+        }
+        .box3{
+            display: none;
+        }
+        .box3.bt2{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="main-heading">Event listeners</h1>
+
+    <div class="container">
+        <div class="boxes box1">
+            <h1 id="heading">Example1</h1>
+            <button>Enter</button>
+        </div>
+        <div class="boxes box2">
+            <h1 id="heading">Example2</h1>
+            <button class="bt2">Enter</button>
+        </div>
+        <div class="boxes box3">
+            <h1 id="heading">Example3</h1>
+            <button class="bt3">Enter</button>
+        </div>
+    </div>
+
+    <script>
+        let button3=document.querySelector('.bt3');
+        function myalert(){
+            alert("hits enter in example3");
+        }
+        button3.addEventListener('click',myalert);
+
+
+        function changebgcol(){
+            box3.style.backgroundColor='red';
+        }
+        let box3=document.querySelector('.box3');
+        box3.addEventListener('mouseover',changebgcol)
+
+        let button2=document.querySelector('.bt2');
+        function elaboratefunc(e){
+
+            console.log(e.target.getAttribute('class'));
+
+            if (e.target.matches('button')){
+                e.target.style.backgroundColor='red'
+            }
+            
+            if (box3.classList.contains('bt2')){
+                box3.classList.remove('bt2');
+            }
+            else{
+                box3.classList.add('bt2');
+            }
+        }
+        button2.addEventListener('click',elaboratefunc);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            
+            background-color:lightcoral;
+        }
+        #main-heading{
+            color: aqua;
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: bolder;
+        }
+        .container{
+            border: 3px solid whitesmoke;
+            border-radius: 10px;
+            width: 60%;
+            margin: auto;
+        }
+        ul{
+            
+            list-style-type: none;
+            margin: 30px;
+            padding: 0;
+        }
+        .list-items{
+            border-bottom: 2px solid rgb(39, 35, 35);
+            background-color: white;
+            font-size: large;
+            font-weight: bold;
+            text-align: center;
+            line-height: 45px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="main-heading">My movies</h1>
+        <ul>
+            <li class="list-items">
+                <span>inside</span>Transformers</li>
+            <li class="list-items">avtar</li>
+            <li class="list-items">Jawan</li>
+            <li class="list-items">Benhur</li>
+            <li class="list-items">Marvel</li>
+            <li class="list-items">bahubali </li>
+        </ul>
+    </div>
+
+    <script>
+        let myid=document.getElementById('main-heading')
+        console.log(myid)
+
+        let listitems=document.getElementsByClassName('list-items')
+        console.log(listitems)
+        for(let i=0;i<listitems.length;i++){
+            console.log(listitems[i])
+        }
+
+        let tagname=document.getElementsByTagName('li')
+        console.log(tagname)
+
+        let queryselector=document.querySelector('ul');
+        console.log(queryselector);
+
+        let queryselectorall=document.querySelectorAll('li');
+        console.log(queryselectorall);
+
+        //manipulation dom
+        console.log(queryselectorall)
+        for(let j=0;j<queryselectorall.length;j++){
+            queryselectorall[j].style.fontSize='larger'
+        }
+        
+        //adding 
+        const createdEle=document.createElement('li');
+        queryselector.append(createdEle)
+        console.log(queryselector)
+        createdEle.innerText="New added movie"
+
+        //innerText,innerHTML,textContent
+        const firstEle=document.querySelector('.list-items');
+        console.log(firstEle.innerHTML);
+        console.log(firstEle.innerText);
+        console.log(firstEle.textContent);
+
+        //set attributes,get attributes with Id's
+        createdEle.setAttribute('id','main-heading')
+        console.log(createdEle)
+       //createdEle.removeAttribute('id') we can remove also
+        const getIdname=document.querySelector('#main-heading');
+        console.log(getIdname.getAttribute('id'));
+
+        //set attributes,get attributes with Classes.
+        createdEle.classList.add('list-items')
+        console.log(createdEle.classList.contains('list-items'));
+        createdEle.classList.remove('list-items')
+        console.log(createdEle.classList.contains('list-items'));
+
+        // nodes and relationships
+
+        console.log(queryselector.parentNode)
+        console.log("this")
+        console.log(queryselector.parentElement)
+
+        console.log(queryselector.childNodes)
+        console.log(queryselector.firstChild)
+        console.log(queryselector.lastChild)
+        queryselector.childNodes[9].style.backgroundColor="red"
+
+        console.log(queryselector.children) //no text (no spaces)
+        console.log(queryselector.firstElementChild) //No spaces
+        console.log(queryselector.lastElementChild);
+        console.log(queryselector.children[0])
+
+        console.log(document.querySelector('div').childNodes)
+        console.log(queryselector.previousSibling)
+        console.log(queryselector.nextSibling)
+
+        console.log(queryselector.previousElementSibling)
+        
+
+
+    </script>
+</body>
+</html>
